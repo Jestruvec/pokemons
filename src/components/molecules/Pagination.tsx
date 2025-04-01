@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import { paginationSizes } from "@/lib/constants";
+import { paginationSizes } from "@/lib/constants/constants";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import { CustomButton, CustomSelect } from "@/components";
 

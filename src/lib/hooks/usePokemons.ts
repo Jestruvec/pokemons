@@ -1,8 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { CommonDescription, PokemonApiResponse } from "@/lib/types";
-
-const apiUrl = import.meta.env.VITE_POKEMON_API;
+import { pokemonApiUrl } from "@/lib/constants/constants";
 
 export const usePokemons = () => {
   const [pokemons, setPokemons] = useState<CommonDescription[]>([]);
@@ -16,7 +15,7 @@ export const usePokemons = () => {
 
       try {
         const response = await axios.get<PokemonApiResponse>(
-          `${apiUrl}/pokemon/`,
+          `${pokemonApiUrl}/pokemon/`,
           {
             params: { limit: 2000, offset: 0 },
           }

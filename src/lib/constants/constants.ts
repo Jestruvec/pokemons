@@ -1,7 +1,8 @@
 import { PokemonType } from "../types";
 
-export const paginationSizes = [25, 50, 75, 100];
-export const pokemonTypes: PokemonType[] = [
+const pokemonApiUrl = "https://pokeapi.co/api/v2/";
+const paginationSizes = [25, 50, 75, 100];
+const pokemonTypes: PokemonType[] = [
   "normal",
   "grass",
   "fire",
@@ -17,3 +18,5 @@ export const pokemonTypes: PokemonType[] = [
   "dragon",
   "flying",
 ];
+
+export { pokemonApiUrl, paginationSizes, pokemonTypes };

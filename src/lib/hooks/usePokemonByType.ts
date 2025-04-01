@@ -1,8 +1,7 @@
 import { useState, useCallback } from "react";
-import { PokemonType } from "@/lib/types";
 import axios from "axios";
-
-const apiUrl = import.meta.env.VITE_POKEMON_API;
+import { PokemonType } from "@/lib/types";
+import { pokemonApiUrl } from "@/lib/constants/constants";
 
 export const usePokemonByType = () => {
   const [loading, setLoading] = useState(true);
@@ -13,7 +12,7 @@ export const usePokemonByType = () => {
     setError(null);
 
     try {
-      const response = await axios.get<any>(`${apiUrl}/type/${type}`);
+      const response = await axios.get<any>(`${pokemonApiUrl}/type/${type}`);
       return response.data;
     } catch (err) {
       setError(

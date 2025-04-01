@@ -1,4 +1,4 @@
-import { pokemonTypes } from "@/lib/constants";
+import { pokemonTypes } from "@/lib/constants/constants";
 import { PokemonType } from "@/lib/types";
 import { TypeChip } from "../atoms/TypeChip";
 

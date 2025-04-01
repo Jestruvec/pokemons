@@ -9,7 +9,7 @@ import {
   TypeChipList,
 } from "@/components";
 import { PokemonType } from "@/lib/types";
-import { pokemonTypes } from "@/lib/constants";
+import { pokemonTypes } from "@/lib/constants/constants";
 import { usePokemonByType } from "@/lib/hooks";
 
 export const Home = () => {
