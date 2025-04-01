@@ -1,0 +1,18 @@
+@import "tailwindcss";
+
+body {
+  margin: 0;
+}
+
+/* Estilo personalizado para la barra de desplazamiento */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 0; /* Esto oculta la barra de desplazamiento */
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: transparent; /* Si deseas hacer el thumb invisible también */
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent; /* Opcional, para hacer el track transparente */
+}
