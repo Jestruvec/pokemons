@@ -32,8 +32,32 @@ Clona este repositorio a tu máquina utilizando Git:
 
 ```bash
 git clone https://github.com/Jestruvec/pokemons.git
+
+```
+
+### 2. Entrar a la carpeta
+
+Accede a la carpeta:
+
+```bash
 cd pokemons
+
+```
+
+### 3. Instalar las dependencias
+
+Instala las dependencias necesarias:
+
+```bash
 npm install
+
+```
+
+### 4. Levantar el proyecto localmente
+
+Levanta el proyecto en tu maquina:
+
+```bash
 npm run dev
 
 ```
