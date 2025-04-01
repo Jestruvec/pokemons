@@ -37,7 +37,7 @@ export const PokemonCard = ({ pokemon, selectedTypes }: ComponentProps) => {
 
   if (pokemonDetail) {
     return (
-      <div className="flex flex-col w-40 h-50 items-center justify-between border rounded-md shadow-md border-gray-400 p-2 cursor-pointer">
+      <div className="flex flex-col w-40 h-50 items-center justify-between border rounded-md shadow-md border-gray-400 p-2">
         <h3 className="font-bold text-center">{pokemonDetail.name}</h3>
         <img
           className="w-24 h-2w-24 hover:scale-120 transform transition-all ease-in-out duration-200"
