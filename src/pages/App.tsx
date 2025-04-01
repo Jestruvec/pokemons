@@ -6,7 +6,7 @@ import {
   Route,
   Navigate,
 } from "react-router-dom";
-import { Home, PokemonDetail, NotFound, MainLayout } from "@/components";
+import { Home, NotFound, MainLayout } from "@/components";
 
 const App = () => {
   return (
@@ -16,7 +16,6 @@ const App = () => {
           <Routes>
             <Route path="/" element={<Navigate to="/home" replace />} />
             <Route path="home" element={<Home />} />
-            <Route path="pokemons/:pokemonId" element={<PokemonDetail />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </MainLayout>

@@ -13,7 +13,6 @@ import { PokemonList } from "./molecules/PokemonList";
 import { PokemonCard } from "./molecules/PokemonCard";
 import { PaginationControls } from "./molecules/Pagination";
 import { TypeChipList } from "./molecules/TypeChipList";
-import { PokemonDetail } from "./molecules/PokemonDetail";
 
 import { Home } from "./organisms/Home";
 
@@ -29,7 +28,6 @@ export {
   PaginationControls,
   MainLayout,
   Home,
-  PokemonDetail,
   NotFound,
   PokemonCard,
   PokemonList,
