@@ -23,7 +23,7 @@ export const CustomButton = ({
       disabled={disabled}
     >
       {label && <span>{label}</span>}
-      {icon && createElement(icon)} {/* Renderizando el icono correctamente */}
+      {icon && createElement(icon)}
     </button>
   );
 };
