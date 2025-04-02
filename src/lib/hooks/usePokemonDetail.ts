@@ -1,8 +1,14 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { PokemonDetail } from "@/lib/types/Pokemon";
+import { RootState } from "../store/store";
+import { useSelector } from "react-redux";
 
-export const usePokemonDetail = (url: string) => {
+export const usePokemonDetail = (url: string, name: string) => {
+  const pokemonDetails = useSelector(
+    (state: RootState) => state.pokemonDetails.pokemonDetails
+  );
+
   const [pokemonDetail, setPokemon] = useState<PokemonDetail | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -26,8 +32,15 @@ export const usePokemonDetail = (url: string) => {
       }
     };
 
-    fetchPokemon();
-  }, [url]);
+    const findDetail = pokemonDetails.find((detail) => detail.name === name);
+
+    if (!findDetail) {
+      fetchPokemon();
+    } else {
+      setPokemon(findDetail);
+      setLoading(false);
+    }
+  }, [url, name, pokemonDetails]);
 
   return { pokemonDetail, error, loading };
 };

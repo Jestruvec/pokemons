@@ -19,7 +19,10 @@ interface ComponentProps {
 
 export const PokemonCard = ({ pokemon, selectedTypes }: ComponentProps) => {
   const dispatch = useDispatch();
-  const { pokemonDetail, error, loading } = usePokemonDetail(pokemon.url);
+  const { pokemonDetail, error, loading } = usePokemonDetail(
+    pokemon.url,
+    pokemon.name
+  );
 
   useEffect(() => {
     if (pokemonDetail) {
