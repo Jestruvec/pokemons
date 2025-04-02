@@ -1,6 +1,12 @@
 # Pokemons - Proyecto
 
-Este proyecto muestra una lista de Pokémon filtrada por tipos, obtenida desde la [PokeAPI](https://pokeapi.co/). Utiliza tecnologías como React, Redux y GitHub Pages para el despliegue.
+Este proyecto muestra una lista de Pokémon filtrada por tipos, obtenida desde la PokeAPI. Fue desarrollado como parte de una prueba técnica y utiliza tecnologías como React, Redux y GitHub Pages para el despliegue.
+
+## 🚀 Descripción
+
+Trabajar con la PokeAPI puede ser un reto, especialmente al implementar funcionalidades de búsqueda, filtrado y paginación. Uno de los mayores desafíos de este proyecto fue manejar eficientemente los aproximadamente 1,200 Pokémon disponibles en la API, ya que no existe un endpoint que devuelva una lista detallada con sus tipos incluidos.
+
+Para solucionar esto, fue necesario realizar consultas individuales dinamicamente para obtener información detallada de cada Pokémon, optimizando el rendimiento y la experiencia del usuario.
 
 ---
 
