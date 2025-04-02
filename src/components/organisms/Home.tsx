@@ -12,9 +12,15 @@ import {
 import { PokemonType } from "@/lib/types/Pokemon";
 import { pokemonTypes } from "@/lib/constants/constants";
 import { usePokemonByType } from "@/lib/hooks";
+import { useSelector } from "react-redux";
+import { RootState } from "@/lib/store/store";
 
 export const Home = () => {
-  const { error, fetchPokemonsByType } = usePokemonByType();
+  const pokemonsByType = useSelector(
+    (state: RootState) => state.pokemonDetails.pokemonsByType
+  );
+
+  const { error, loading } = usePokemonByType();
   const [totalItems, setTotalItems] = useState(0);
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedTypes, setSelectedTypes] =
@@ -28,9 +34,9 @@ export const Home = () => {
 
   useEffect(() => {
     const getTotalItems = async () => {
-      const promises = selectedTypes.map((type) => fetchPokemonsByType(type));
-      const response = await Promise.all(promises);
-      const allPokemons = response.flatMap((e) => e.pokemon);
+      const allPokemons = pokemonsByType
+        .filter((type) => selectedTypes.includes(type.name))
+        .flatMap((e) => e.pokemon);
       const uniquePokemons = Array.from(
         new Map(allPokemons.map((item) => [item.pokemon.name, item])).values()
       );
@@ -44,7 +50,7 @@ export const Home = () => {
     };
 
     getTotalItems();
-  }, [selectedTypes, fetchPokemonsByType, searchQuery]);
+  }, [selectedTypes, searchQuery, pokemonsByType]);
 
   const handleSearch = (inputValue: string) => {
     goToPage(1);
@@ -120,6 +126,7 @@ export const Home = () => {
         />
 
         <PaginationControls
+          loading={loading}
           pageNum={pageNum}
           pageSize={pageSize}
           totalPages={totalPages}

@@ -1,29 +1,42 @@
-import { useState, useCallback } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
-import { PokemonType } from "@/lib/types/Pokemon";
-import { pokemonApiUrl } from "@/lib/constants/constants";
+import { pokemonApiUrl, pokemonTypes } from "@/lib/constants/constants";
+import { PokemonType } from "../types/Pokemon";
+import { useDispatch } from "react-redux";
+import { setPokemonsByType } from "@/lib/store/slices/pokemonDetailSlice";
 
 export const usePokemonByType = () => {
+  const dispatch = useDispatch();
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
-  const fetchPokemonsByType = useCallback(async (type: PokemonType) => {
-    setLoading(true);
-    setError(null);
+  useEffect(() => {
+    const fetchPokemonsByTypes = async () => {
+      setLoading(true);
+      setError(null);
 
-    try {
-      const response = await axios.get<any>(`${pokemonApiUrl}/type/${type}`);
-      return response.data;
-    } catch (err) {
-      setError(
-        err instanceof Error
-          ? err.message
-          : "Error al obtener la información del Pokémon"
-      );
-    } finally {
-      setLoading(false);
-    }
-  }, []);
+      try {
+        const responses = await Promise.all(
+          pokemonTypes.map(async (type: PokemonType) => {
+            const response = await axios.get(`${pokemonApiUrl}/type/${type}`);
+            return response.data;
+          })
+        );
 
-  return { loading, error, fetchPokemonsByType };
+        dispatch(setPokemonsByType(responses));
+      } catch (err) {
+        setError(
+          err instanceof Error
+            ? err.message
+            : "Error al obtener los Pokémon por tipo"
+        );
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchPokemonsByTypes();
+  }, [dispatch]);
+
+  return { loading, error };
 };

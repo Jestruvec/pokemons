@@ -1,9 +1,10 @@
 import { useMemo } from "react";
 import { paginationSizes } from "@/lib/constants/constants";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
-import { CustomButton, CustomSelect } from "@/components";
+import { CustomButton, CustomSelect, SpinnerLoader } from "@/components";
 
 interface ComponentProps {
+  loading: boolean;
   pageNum: number;
   pageSize: number;
   totalPages: number;
@@ -16,6 +17,7 @@ interface ComponentProps {
 }
 
 export const PaginationControls = ({
+  loading,
   pageNum,
   pageSize,
   hasNextPage,
@@ -39,6 +41,10 @@ export const PaginationControls = ({
       value: size,
     }));
   }, []);
+
+  if (loading) {
+    return <SpinnerLoader />;
+  }
 
   return (
     <div className="flex items-center justify-between p-2">

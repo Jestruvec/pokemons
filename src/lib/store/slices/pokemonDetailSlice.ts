@@ -1,20 +1,25 @@
 import { PokemonDetail } from "@/lib/types/Pokemon";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
-interface paginationState {
+interface pokemonState {
   pokemonDetails: PokemonDetail[];
+  pokemonsByType: any[];
   selectedPokemonDetail: PokemonDetail | null;
 }
 
-const initialState: paginationState = {
+const initialState: pokemonState = {
   pokemonDetails: [],
+  pokemonsByType: [],
   selectedPokemonDetail: null,
 };
 
-export const paginationSlice = createSlice({
-  name: "pagination",
+export const pokemonSlice = createSlice({
+  name: "pokemons",
   initialState,
   reducers: {
+    setPokemonsByType: (state, action: PayloadAction<any[]>) => {
+      state.pokemonsByType = action.payload;
+    },
     addPokemonDetail: (state, action: PayloadAction<PokemonDetail>) => {
       const findDetail = state.pokemonDetails.find(
         (e) => e.name === action.payload.name
@@ -34,8 +39,9 @@ export const paginationSlice = createSlice({
 });
 
 export const {
+  setPokemonsByType,
   addPokemonDetail,
   setSelectedPokemonDetail,
   removeSelectedPokemonDetail,
-} = paginationSlice.actions;
-export const pokemonDetailReducer = paginationSlice.reducer;
+} = pokemonSlice.actions;
+export const pokemonDetailReducer = pokemonSlice.reducer;
