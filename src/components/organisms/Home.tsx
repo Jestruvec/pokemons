@@ -7,8 +7,9 @@ import {
   PokemonList,
   Searchbar,
   TypeChipList,
+  PokemonDetailDialog,
 } from "@/components";
-import { PokemonType } from "@/lib/types";
+import { PokemonType } from "@/lib/types/Pokemon";
 import { pokemonTypes } from "@/lib/constants/constants";
 import { usePokemonByType } from "@/lib/hooks";
 
@@ -92,6 +93,8 @@ export const Home = () => {
 
   return (
     <div className="relative grid grid-cols-12 gap-4 p-2">
+      <PokemonDetailDialog />
+
       <div className="hidden lg:block col-span-2"></div>
 
       <div className="col-span-12 lg:col-span-8 flex flex-col gap-4">

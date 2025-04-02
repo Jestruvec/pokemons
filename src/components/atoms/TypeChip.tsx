@@ -1,4 +1,4 @@
-import { PokemonType } from "@/lib/types";
+import { PokemonType } from "@/lib/types/Pokemon";
 
 interface ComponentProps {
   label: string;

@@ -4,7 +4,7 @@ import { RootState } from "@/lib/store/store";
 import { usePokemons } from "@/lib/hooks";
 import { PokemonCard } from "./PokemonCard";
 import { ErrorMessage, EmptySection } from "@/components";
-import { PokemonType } from "@/lib/types";
+import { PokemonType } from "@/lib/types/Pokemon";
 
 interface ComponentProps {
   searchQuery: string;

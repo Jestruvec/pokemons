@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { CommonDescription, PokemonApiResponse } from "@/lib/types";
+import { CommonDescription, PokemonApiResponse } from "@/lib/types/Pokemon";
 import { pokemonApiUrl } from "@/lib/constants/constants";
 
 export const usePokemons = () => {

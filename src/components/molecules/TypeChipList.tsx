@@ -1,5 +1,5 @@
 import { pokemonTypes } from "@/lib/constants/constants";
-import { PokemonType } from "@/lib/types";
+import { PokemonType } from "@/lib/types/Pokemon";
 import { TypeChip } from "../atoms/TypeChip";
 
 interface ComponentProps {

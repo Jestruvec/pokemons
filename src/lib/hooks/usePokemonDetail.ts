@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { PokemonDetail } from "@/lib/types";
+import { PokemonDetail } from "@/lib/types/Pokemon";
 
 export const usePokemonDetail = (url: string) => {
   const [pokemonDetail, setPokemon] = useState<PokemonDetail | null>(null);

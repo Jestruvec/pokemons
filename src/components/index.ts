@@ -13,10 +13,12 @@ import { PokemonList } from "./molecules/PokemonList";
 import { PokemonCard } from "./molecules/PokemonCard";
 import { PaginationControls } from "./molecules/Pagination";
 import { TypeChipList } from "./molecules/TypeChipList";
+import { PokemonDetailDialog } from "./molecules/PokemonDetailDialog";
 
 import { Home } from "./organisms/Home";
 
 export {
+  PokemonDetailDialog,
   EmptySection,
   ErrorMessage,
   TypeChipList,

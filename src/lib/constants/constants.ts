@@ -1,4 +1,4 @@
-import { PokemonType } from "../types";
+import { PokemonType } from "../types/Pokemon";
 
 const pokemonApiUrl = "https://pokeapi.co/api/v2/";
 const paginationSizes = [25, 50, 75, 100];

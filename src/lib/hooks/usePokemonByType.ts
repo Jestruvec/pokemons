@@ -1,6 +1,6 @@
 import { useState, useCallback } from "react";
 import axios from "axios";
-import { PokemonType } from "@/lib/types";
+import { PokemonType } from "@/lib/types/Pokemon";
 import { pokemonApiUrl } from "@/lib/constants/constants";
 
 export const usePokemonByType = () => {
